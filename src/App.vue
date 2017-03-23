@@ -6,7 +6,7 @@
   				ref = "content[index]">{{v.msg}}</li>
   	</ul>
   	<div>
-  		<ul>
+  		<ul v-show = "ready">
   			<li v-for = "(item,index) in infoItems" 
   					v-model = "infoElement"
   				  is = "info" 
@@ -14,23 +14,23 @@
   					content = "I am info"
   					v-on:remove = "infoItems.splice(index,1)"></li>
 				<li v-for = "(item,index) in errorItems"
-					v-model = "errorElement"
-				  is = "wrong" 
-					title = "Error" 
-					content = "I am error"
-					v-on:remove = "errorItems.splice(index,1)"></li>
+						v-model = "errorElement"
+					  is = "wrong" 
+						title = "Error" 
+						content = "I am error"
+						v-on:remove = "errorItems.splice(index,1)"></li>
 				<li v-for = "(item,index) in successItems" 
-					v-model = "successElement"
-				  is = "success" 
-					title = "Success" 
-					content = "I am success"
-					v-on:remove = "successItems.splice(index,1)"></li>
+						v-model = "successElement"
+					  is = "success" 
+						title = "Success" 
+						content = "I am success"
+						v-on:remove = "successItems.splice(index,1)"></li>
 				<li v-for = "(item,index) in warnItems" 
-					v-model = "warnElement"
-				  is = "warn" 
-					title = "Warn" 
-					content = "I am warn"
-					v-on:remove = "warnItems.splice(index,1)"></li>
+						v-model = "warnElement"
+					  is = "warn" 
+						title = "Warn" 
+						content = "I am warn"
+						v-on:remove = "warnItems.splice(index,1)"></li>
   		</ul>
   	</div>
   </div>
@@ -64,11 +64,13 @@ export default {
      	infoElement:'',
      	successElement:'',
      	errorElement:'',
-     	warnElement:''
+     	warnElement:'',
+     	ready:false
     }
   },
   methods:{
   	handleClick(e,index){
+  		this.ready = true
   		if(index === 0){
   			console.log('would be created an infoElement:',index)
 				infoItems.push(this.index)
