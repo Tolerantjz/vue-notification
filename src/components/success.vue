@@ -61,9 +61,9 @@
 	50%{opacity: .5;}
 	0%{height: 0px;opacity: 0;}
 }
-img{width: 20%;position: absolute;top: 10px;}
+img{width: 58px;position: absolute;top: 10px;}
 .words{overflow: hidden;}
 .words>span:hover{cursor: pointer;}
 .close{float: right;margin: 5px;}
-.titile,.content{margin-left: 46px;}
+.titile,.content{margin-left: 58px;}
 </style>
