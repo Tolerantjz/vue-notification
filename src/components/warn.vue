@@ -4,7 +4,7 @@
 			<div class="bro" ref = "bro">
 				<img src="../assets/warning.png" alt="sorry to see this please wait" />
 				<div class="words">
-					<span class="close" @click = "removeElement">X</span>
+					<span class="close" @click.stop.prevent = "removeElement">X</span>
 					<p class="titile">{{title}}</p>
 					<p class="content">{{content}}</p>
 				</div>
@@ -32,20 +32,24 @@
 				setTimeout(function(){
 //					alert('be going to remove')
 					self.$emit('remove')
-				},100)
+				},30)
 			}
 		},
 		mounted(){
 			console.log(window.getComputedStyle(this.$refs.bro).width)
 			const self = this
-			setTimeout(function(){
-				if(self.isEmpty){
-					return false
-				}else{
-					self.removeElement()				
-				}
-//				alert('i would be removed')
-			},3000)
+			if(this.isEmpty === true){
+				return false
+			}else{
+				setTimeout(function(){
+					if(self.isEmpty){
+						return false
+					}else{
+						self.removeElement()				
+					}
+	//				alert('i would be removed')
+				},3000)	
+			}
 		}
 	}
 </script>
